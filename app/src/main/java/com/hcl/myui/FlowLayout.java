@@ -48,7 +48,7 @@ public class FlowLayout extends ViewGroup {
             int childHeight = vChild.getMeasuredHeight() + mlp.topMargin + mlp.bottomMargin;
             if ((lineWidth + childWidth) > sizeWidth - getPaddingLeft() - getPaddingRight()) {
                 width = Math.max(width, lineWidth);
-                lineWidth = childWidth;//新的一行的宽
+                lineWidth = childWidth;///新的一行的宽
                 height += lineHeight;//只有等到换行了，才知道刚才那行的最大height
                 lineHeight = childHeight;//换了一行,height要更新
 
