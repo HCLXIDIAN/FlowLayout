@@ -2,38 +2,37 @@ package com.hcl.myui;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+    private String[] mVals = new String[]
+            { "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
+                    "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
+                    "Android", "Weclome Hello", "Button Text", "TextView" };
 
+    private FlowLayout mFlowLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mFlowLayout =(FlowLayout)findViewById(R.id.id_flowlayout);
+        initData();
     }
 
+    private void initData() {
+        for (int i =0;i < mVals.length;i++){
+            LayoutInflater inflater=this.getLayoutInflater();
+            TextView textView= (TextView) inflater.inflate(R.layout.tv
+                    ,mFlowLayout,false);
+            textView.setText(mVals[i]);
+            mFlowLayout.addView(textView);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
+
 }
