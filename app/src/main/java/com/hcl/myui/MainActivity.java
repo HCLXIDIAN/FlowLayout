@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void initData() {
         for (int i =0;i < mVals.length;i++){
-            LayoutInflater inflater=this.getLayoutInflater();
+            LayoutInflater inflater=LayoutInflater.from(this);
             TextView textView= (TextView) inflater.inflate(R.layout.tv
                     ,mFlowLayout,false);
             textView.setText(mVals[i]);
